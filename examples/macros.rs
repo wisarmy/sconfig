@@ -1,7 +1,6 @@
 use std::path::PathBuf;
 
-use config::Configurable;
-use macros::Toml;
+use config::{Configurable, Toml};
 use serde::{Deserialize, Serialize};
 #[derive(Debug, Default, Serialize, Deserialize, Toml)]
 struct AppConfig {
