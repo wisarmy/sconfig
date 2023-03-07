@@ -12,3 +12,5 @@ proc-macro = true
 proc-macro2 = "1.0.51"
 quote = "1.0.23"
 syn = { version = "1.0.108", features = ["extra-traits"] }
+toml = "0.7.2"
+tracing = "0.1.37"

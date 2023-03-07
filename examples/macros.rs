@@ -44,6 +44,6 @@ fn main() {
     let config = toml_str.parse::<AppConfig>().unwrap();
     println!("to config: {:#?}", config);
     config.init().unwrap();
-    let toml_str = toml_edit::ser::to_string(&config).unwrap();
+    let toml_str = toml::to_string(&config).unwrap();
     println!("to toml string: {}", toml_str);
 }
