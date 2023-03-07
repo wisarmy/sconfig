@@ -16,11 +16,12 @@ pub fn derive_toml(input: TokenStream) -> TokenStream {
         }
         impl std::fmt::Display for #name {
             fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
-                match toml::to_string_pretty(self) {
+                match toml_edit::ser::to_string(self) {
                     Ok(v) => {
                          write!(f, "{}", v)
                     },
                     Err(e) => {
+                        tracing::error!("{}", e) ;
                         Err(std::fmt::Error::default())
                     }
                 }
