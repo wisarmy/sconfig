@@ -7,7 +7,6 @@ pub fn derive_toml(input: TokenStream) -> TokenStream {
     let input = parse_macro_input!(input as DeriveInput);
     let name = input.ident;
     let expaned = quote! {
-        use config::FileType;
         impl std::str::FromStr for #name {
             type Err = toml::de::Error;
             fn from_str(s: &str) -> Result<Self, Self::Err> {
@@ -35,7 +34,6 @@ pub fn derive_json(input: TokenStream) -> TokenStream {
     let input = parse_macro_input!(input as DeriveInput);
     let name = input.ident;
     let expaned = quote! {
-        use config::FileType;
         impl std::str::FromStr for #name {
             type Err = serde_json::Error;
             fn from_str(s: &str) -> Result<Self, Self::Err> {
