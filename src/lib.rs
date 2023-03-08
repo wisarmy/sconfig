@@ -45,4 +45,16 @@ pub trait Configurable: Serialize + Display {
         fs::write(self.config_path(), config_string)?;
         Ok(())
     }
+    /// remove config dir
+    #[inline]
+    fn remove_all(&self) -> Result<()> {
+        fs::remove_dir_all(self.config_dir())?;
+        Ok(())
+    }
+    /// remove config file
+    #[inline]
+    fn remove(&self) -> Result<()> {
+        fs::remove_file(self.config_path())?;
+        Ok(())
+    }
 }
