@@ -7,12 +7,14 @@ use error::Result;
 use serde::Serialize;
 use tracing::info;
 
-pub use macros::*;
+pub use macros::{Json, Toml};
 pub use types::FileType;
 
-pub trait Configurable: Serialize + Display + Definable {
+pub trait Configurable: Serialize + Display {
     /// config dir
     fn config_dir(&self) -> PathBuf;
+    /// config file type
+    fn config_type(&self) -> FileType;
     #[inline]
     fn config_name(&self) -> String {
         format!("config.{}", self.config_type().to_string())
@@ -43,7 +45,4 @@ pub trait Configurable: Serialize + Display + Definable {
         fs::write(self.config_path(), config_string)?;
         Ok(())
     }
-}
-pub trait Definable {
-    fn config_type(&self) -> FileType;
 }

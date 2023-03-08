@@ -26,6 +26,10 @@ impl Configurable for AppConfig {
     fn config_dir(&self) -> std::path::PathBuf {
         PathBuf::new()
     }
+
+    fn config_type(&self) -> FileType {
+        FileType::Toml
+    }
 }
 
 fn main() {
