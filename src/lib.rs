@@ -25,12 +25,17 @@ pub trait Configurable: Serialize + Display {
         self.config_dir().join(self.config_name())
     }
     #[inline]
-    fn init(&self) -> Result<()> {
+    /// if force = true, will remove exists config_path
+    fn init(&self, force: bool) -> Result<()> {
         if self.config_path().exists() {
-            return Err(config_error!(
-                "config file {} already exists!",
-                self.config_path().display(),
-            ));
+            if force {
+                self.remove()?;
+            } else {
+                return Err(config_error!(
+                    "config file {} already exists!",
+                    self.config_path().display(),
+                ));
+            }
         }
         fs::create_dir_all(self.config_dir())?;
         self.write()?;

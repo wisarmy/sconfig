@@ -1,6 +1,6 @@
 use std::path::PathBuf;
 
-use config::{Configurable, Json};
+use config::{Configurable, FileType, Json};
 use serde::{Deserialize, Serialize};
 
 #[derive(Debug, Default, Serialize, Deserialize, Json)]
@@ -48,7 +48,7 @@ fn main() {
 
     let config = json_str.parse::<AppConfig>().unwrap();
     println!("to config: {:#?}", config);
-    config.init().unwrap();
+    config.init(false).unwrap();
     let json_str = serde_json::to_string_pretty(&config).unwrap();
     println!("to json string: {}", json_str);
 }

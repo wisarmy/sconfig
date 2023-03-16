@@ -1,6 +1,6 @@
 use std::path::PathBuf;
 
-use config::{Configurable, Toml};
+use config::{Configurable, FileType, Toml};
 use serde::{Deserialize, Serialize};
 
 #[derive(Debug, Default, Serialize, Deserialize, Toml)]
@@ -47,7 +47,7 @@ fn main() {
     println!("from toml string: {}", toml_str);
     let config = toml_str.parse::<AppConfig>().unwrap();
     println!("to config: {:#?}", config);
-    config.init().unwrap();
+    config.init(true).unwrap();
     let toml_str = toml::to_string(&config).unwrap();
     println!("to toml string: {}", toml_str);
 }
