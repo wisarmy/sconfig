@@ -7,7 +7,7 @@ use error::Result;
 use serde::Serialize;
 use tracing::info;
 
-pub use macros::{Json, Toml};
+pub use sconfig_macros::{Json, Toml};
 pub use types::FileType;
 
 pub trait Configurable: Serialize + Display {

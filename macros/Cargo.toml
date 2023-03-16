@@ -1,7 +1,13 @@
 [package]
-name = "macros"
+name = "sconfig-macros"
 version = "0.1.0"
 edition = "2021"
+authors = ["wisarmy <wisarmy@gmail.com>"]
+license = "MIT"
+readme = "README.md"
+repository = "https://github.com/wisarmy/sconfig"
+description = "Macros for sconfig"
+keywords = ["sconfig", "config"]
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 

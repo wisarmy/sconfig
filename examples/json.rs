@@ -1,6 +1,6 @@
 use std::path::PathBuf;
 
-use config::{Configurable, FileType, Json};
+use sconfig::{Configurable, FileType, Json};
 use serde::{Deserialize, Serialize};
 
 #[derive(Debug, Default, Serialize, Deserialize, Json)]

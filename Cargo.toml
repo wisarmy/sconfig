@@ -1,5 +1,5 @@
 [package]
-name = "config"
+name = "sconfig"
 version = "0.1.0"
 edition = "2021"
 authors = ["wisarmy <wisarmy@gmail.com>"]
@@ -7,7 +7,7 @@ license = "MIT"
 readme = "README.md"
 repository = "https://github.com/wisarmy/config-rs"
 description = "A simple config control tool support read from file and write to file"
-keywords = ["config", "toml", "json", "macro"]
+keywords = ["config", "toml", "json"]
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
@@ -16,7 +16,7 @@ serde = { version = "1.0.152", features = ["derive"] }
 serde_json = "1.0.93"
 thiserror = "1.0.38"
 tracing = "0.1.37"
-macros = { path = "./macros", version = "0.1.0" }
+sconfig-macros = { path = "./macros", version = "0.1.0" }
 toml = "0.7.2"
 
 [workspace]

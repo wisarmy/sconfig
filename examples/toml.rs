@@ -1,6 +1,6 @@
 use std::path::PathBuf;
 
-use config::{Configurable, FileType, Toml};
+use sconfig::{Configurable, FileType, Toml};
 use serde::{Deserialize, Serialize};
 
 #[derive(Debug, Default, Serialize, Deserialize, Toml)]
