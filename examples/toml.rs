@@ -4,6 +4,7 @@ use sconfig::{Configurable, FileType, Toml};
 use serde::{Deserialize, Serialize};
 
 #[derive(Debug, Default, Serialize, Deserialize, Toml)]
+#[toml(inline)]
 struct AppConfig {
     id: u32,
     name: String,
@@ -48,6 +49,7 @@ fn main() {
     let config = toml_str.parse::<AppConfig>().unwrap();
     println!("to config: {:#?}", config);
     config.init(true).unwrap();
-    let toml_str = toml::to_string(&config).unwrap();
+
+    let toml_str = config.to_string();
     println!("to toml string: {}", toml_str);
 }
